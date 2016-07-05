@@ -20,7 +20,7 @@ protocol RangeSliderDelegate: class {
 @IBDesignable
 class RangeSlider: UIView {
     
-    var delegate: RangeSliderDelegate?
+    weak var delegate: RangeSliderDelegate?
     @IBOutlet weak var rightConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundBar: UIView!
@@ -36,17 +36,17 @@ class RangeSlider: UIView {
     // コードから初期化はここから
     override init(frame: CGRect) {
         super.init(frame: frame)
-        comminInit()
+        commonInit()
     }
     
     // Storyboard/xib から初期化はここから
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        comminInit()
+        commonInit()
     }
     
     // xibからカスタムViewを読み込んで準備する
-    private func comminInit() {
+    private func commonInit() {
         // RangeSlider.xib からカスタムViewをロードする
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "RangeSlider", bundle: bundle)
@@ -102,7 +102,7 @@ class RangeSlider: UIView {
      * right: 右のつまみの値 (0-1 の Float)
      */
     func setValue(left: Float, right: Float) {
-        if left < 0 || left > 1 || right < 0 || right > 1 { return }
+        if left < 0 || left > 1 || right < 0 || right > 1 || left > right { return }
         leftConstraint.constant = backgroundBar.frame.width * CGFloat(left)
         rightConstraint.constant = backgroundBar.frame.width * (CGFloat(right) - 1)
     }
