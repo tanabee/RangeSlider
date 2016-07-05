@@ -27,7 +27,7 @@ class RangeSlider: UIView {
     @IBOutlet weak var activeBar: UIView!
     @IBOutlet weak var leftThumb: UIView!
     @IBOutlet weak var rightThumb: UIView!
-    var recentValue: (Float, Float)?
+    var recentValue: (Float, Float) = (0, 1)
     
     var thumbWidth: CGFloat {
         return leftThumb.frame.width
@@ -59,6 +59,12 @@ class RangeSlider: UIView {
         let rightGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragRightThumb(_:)))
         rightThumb.addGestureRecognizer(rightGesture)
         rightThumb.layer.cornerRadius = rightThumb.frame.width/2
+        
+        NSNotificationCenter
+            .defaultCenter()
+            .addObserver(self,
+                         selector: #selector(orientationChanged(_:)),
+                         name: UIDeviceOrientationDidChangeNotification, object: nil)
         
         // カスタムViewのサイズを自分自身と同じサイズにする
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -156,9 +162,17 @@ class RangeSlider: UIView {
         let left = Float(leftConstraint.constant / width)
         let right = Float((width + rightConstraint.constant) / width)
         
-        if let recentValue = recentValue where recentValue == (left, right) { return }
+        if recentValue == (left, right) { return }
         recentValue = (left, right)
         
         delegate?.rangeSliderValueChanged(left, right: right)
+    }
+    
+    func orientationChanged(notification: NSNotification) {
+        self.layoutIfNeeded()
+        UIView.animateWithDuration(0.3) {
+            self.setValue(self.recentValue.0, right: self.recentValue.1)
+            self.layoutIfNeeded()
+        }
     }
 }
