@@ -8,6 +8,15 @@
 
 import UIKit
 
+protocol RangeSliderDelegate: class {
+    /**
+     * 値の変更を伝える
+     * left: 0-1 の Float
+     * right: 0-1 の Float
+     **/
+    func rangeSliderValueChanged(left: Float, right: Float)
+}
+
 @IBDesignable
 class RangeSlider: UIView {
     
@@ -17,8 +26,10 @@ class RangeSlider: UIView {
     @IBOutlet weak var activeBar: UIView!
     @IBOutlet weak var leftThumb: UIView!
     @IBOutlet weak var rightThumb: UIView!
-    @IBOutlet weak var leftThumbWrapperView: UIView!
-    @IBOutlet weak var rightThumbWrapperView: UIView!
+    
+    var thumbWidth: CGFloat {
+        return leftThumb.frame.width
+    }
     
     // コードから初期化はここから
     override init(frame: CGRect) {
@@ -41,9 +52,11 @@ class RangeSlider: UIView {
         addSubview(view)
         
         let leftGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragLeftThumb(_:)))
-        leftThumbWrapperView.addGestureRecognizer(leftGesture)
+        leftThumb.addGestureRecognizer(leftGesture)
+        leftThumb.layer.cornerRadius = leftThumb.frame.width/2
         let rightGesture = UIPanGestureRecognizer(target: self, action: #selector(didDragRightThumb(_:)))
-        rightThumbWrapperView.addGestureRecognizer(rightGesture)
+        rightThumb.addGestureRecognizer(rightGesture)
+        rightThumb.layer.cornerRadius = rightThumb.frame.width/2
         
         // カスタムViewのサイズを自分自身と同じサイズにする
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -75,28 +88,28 @@ class RangeSlider: UIView {
     }
     
     @IBInspectable
-    var thumbCornerRadius: CGFloat = 0 {
-        didSet {
-            leftThumb.layer.cornerRadius = thumbCornerRadius
-            rightThumb.layer.cornerRadius = thumbCornerRadius
-        }
-    }
-    
-    @IBInspectable
     var borderCornerRadius: CGFloat = 0 {
         didSet {
             backgroundBar.layer.cornerRadius = borderCornerRadius
         }
     }
     
+    /**
+     * 値をセットする
+     * left: 左のつまみの値 (0-1 の Float)
+     * right: 右のつまみの値 (0-1 の Float)
+     */
+    func setValues(left: Float, right: Float) {
+    }
+    
     func didDragLeftThumb(gestureRecognizer: UIPanGestureRecognizer) {
         let x = gestureRecognizer.locationInView(backgroundBar).x
         
         if x < 0 { return }
-        if (x - rightConstraint.constant) >= backgroundBar.frame.width - 20 &&
+        if (x - rightConstraint.constant) >= backgroundBar.frame.width - thumbWidth &&
            gestureRecognizer.translationInView(backgroundBar).x > 0
         {
-            leftConstraint.constant = backgroundBar.frame.width - 20 + rightConstraint.constant
+            leftConstraint.constant = backgroundBar.frame.width - thumbWidth + rightConstraint.constant
             return
         }
         
@@ -108,10 +121,10 @@ class RangeSlider: UIView {
         let constant = x - backgroundBar.frame.width
         
         if x - backgroundBar.frame.width > 0 { return }
-        if (leftConstraint.constant - constant) >= backgroundBar.frame.width - 20 &&
+        if (leftConstraint.constant - constant) >= backgroundBar.frame.width - thumbWidth &&
            gestureRecognizer.translationInView(backgroundBar).x < 0
         {
-            rightConstraint.constant = leftConstraint.constant - backgroundBar.frame.width + 20
+            rightConstraint.constant = leftConstraint.constant - backgroundBar.frame.width + thumbWidth
             return
         }
         
