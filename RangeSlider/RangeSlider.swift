@@ -101,6 +101,9 @@ class RangeSlider: UIView {
      * right: 右のつまみの値 (0-1 の Float)
      */
     func setValues(left: Float, right: Float) {
+        if left < 0 || left > 1 || right < 0 || right > 1 { return }
+        leftConstraint.constant = backgroundBar.frame.width * CGFloat(left)
+        rightConstraint.constant = backgroundBar.frame.width * (CGFloat(right) - 1)
     }
     
     func didDragLeftThumb(gestureRecognizer: UIPanGestureRecognizer) {
