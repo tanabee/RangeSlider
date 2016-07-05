@@ -27,6 +27,7 @@ class RangeSlider: UIView {
     @IBOutlet weak var activeBar: UIView!
     @IBOutlet weak var leftThumb: UIView!
     @IBOutlet weak var rightThumb: UIView!
+    var recentValue: (Float, Float)?
     
     var thumbWidth: CGFloat {
         return leftThumb.frame.width
@@ -148,10 +149,16 @@ class RangeSlider: UIView {
         valueChanged()
     }
     
+    // 値が変更された時に呼び出される
+    // 値が変更されている場合にデリゲートメソッドを実行する
     private func valueChanged() {
         let width = backgroundBar.frame.width
         let left = Float(leftConstraint.constant / width)
         let right = Float((width + rightConstraint.constant) / width)
+        
+        if let recentValue = recentValue where recentValue == (left, right) { return }
+        recentValue = (left, right)
+        
         delegate?.rangeSliderValueChanged(left, right: right)
     }
 }
