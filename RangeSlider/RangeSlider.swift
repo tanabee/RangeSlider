@@ -20,6 +20,7 @@ protocol RangeSliderDelegate: class {
 @IBDesignable
 class RangeSlider: UIView {
     
+    var delegate: RangeSliderDelegate?
     @IBOutlet weak var rightConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundBar: UIView!
@@ -105,29 +106,49 @@ class RangeSlider: UIView {
     func didDragLeftThumb(gestureRecognizer: UIPanGestureRecognizer) {
         let x = gestureRecognizer.locationInView(backgroundBar).x
         
-        if x < 0 { return }
+        if x < 0 {
+            leftConstraint.constant = 0
+            valueChanged()
+            return
+        }
         if (x - rightConstraint.constant) >= backgroundBar.frame.width - thumbWidth &&
            gestureRecognizer.translationInView(backgroundBar).x > 0
         {
             leftConstraint.constant = backgroundBar.frame.width - thumbWidth + rightConstraint.constant
+            valueChanged()
             return
         }
         
         leftConstraint.constant = x
+        valueChanged()
     }
     
     func didDragRightThumb(gestureRecognizer: UIPanGestureRecognizer) {
         let x = gestureRecognizer.locationInView(backgroundBar).x
         let constant = x - backgroundBar.frame.width
         
-        if x - backgroundBar.frame.width > 0 { return }
+        if x - backgroundBar.frame.width > 0 {
+            rightConstraint.constant = 0
+            valueChanged()
+            return
+        }
+        
         if (leftConstraint.constant - constant) >= backgroundBar.frame.width - thumbWidth &&
            gestureRecognizer.translationInView(backgroundBar).x < 0
         {
             rightConstraint.constant = leftConstraint.constant - backgroundBar.frame.width + thumbWidth
+            valueChanged()
             return
         }
         
         rightConstraint.constant = constant
+        valueChanged()
+    }
+    
+    private func valueChanged() {
+        let width = backgroundBar.frame.width
+        let left = Float(leftConstraint.constant / width)
+        let right = Float((width + rightConstraint.constant) / width)
+        delegate?.rangeSliderValueChanged(left, right: right)
     }
 }

@@ -22,21 +22,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSK-lb-mw4">
-                    <rect key="frame" x="10" y="142" width="300" height="16"/>
+                    <rect key="frame" x="16" y="142" width="288" height="16"/>
                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="RGs-Em-nuA"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rca-NK-Ku5">
-                    <rect key="frame" x="10" y="142" width="300" height="16"/>
+                    <rect key="frame" x="16" y="142" width="288" height="16"/>
                     <color key="backgroundColor" red="0.043137254901960784" green="0.65490196078431373" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="7Js-b1-LEP"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgY-gX-JLz">
-                    <rect key="frame" x="-6" y="134" width="32" height="32"/>
+                    <rect key="frame" x="0.0" y="134" width="32" height="32"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="KKI-B8-ruu"/>
@@ -44,7 +44,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-k9-u87">
-                    <rect key="frame" x="294" y="134" width="32" height="32"/>
+                    <rect key="frame" x="288" y="134" width="32" height="32"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="Qxw-zN-Hpp"/>
@@ -60,10 +60,10 @@
                 <constraint firstItem="jKb-k9-u87" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WpF-BA-V71"/>
                 <constraint firstItem="Rca-NK-Ku5" firstAttribute="leading" secondItem="eSK-lb-mw4" secondAttribute="leading" id="XB9-Ly-1c8"/>
                 <constraint firstItem="eSK-lb-mw4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="akj-nd-ELh"/>
-                <constraint firstItem="eSK-lb-mw4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dTl-So-zfI"/>
+                <constraint firstItem="eSK-lb-mw4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="dTl-So-zfI"/>
                 <constraint firstItem="Rca-NK-Ku5" firstAttribute="centerY" secondItem="eSK-lb-mw4" secondAttribute="centerY" id="hlH-Qo-cpt"/>
                 <constraint firstItem="Rca-NK-Ku5" firstAttribute="leading" secondItem="eSK-lb-mw4" secondAttribute="leading" id="jbQ-Gn-scF"/>
-                <constraint firstAttribute="trailing" secondItem="eSK-lb-mw4" secondAttribute="trailing" constant="10" id="pTY-ZC-zol"/>
+                <constraint firstAttribute="trailing" secondItem="eSK-lb-mw4" secondAttribute="trailing" constant="16" id="pTY-ZC-zol"/>
                 <constraint firstItem="jKb-k9-u87" firstAttribute="centerX" secondItem="Rca-NK-Ku5" secondAttribute="trailing" id="rYh-Gr-tPL"/>
                 <constraint firstItem="Rca-NK-Ku5" firstAttribute="trailing" secondItem="eSK-lb-mw4" secondAttribute="trailing" id="y3X-px-yro"/>
             </constraints>

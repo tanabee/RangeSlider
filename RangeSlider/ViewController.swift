@@ -9,12 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var rangeSlider: RangeSlider!
     
-    @IBOutlet weak var defaultSlider: UISlider!
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        rangeSlider.delegate = self
     }
-
 }
 
+extension ViewController: RangeSliderDelegate {
+    func rangeSliderValueChanged(left: Float, right: Float) {
+        print(left, right)
+    }
+}

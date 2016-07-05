@@ -41,7 +41,7 @@
                                         <rect key="frame" x="0.0" y="190" width="320" height="189"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-sl-UAa" customClass="RangeSlider" customModule="RangeSlider" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="73" width="304" height="44"/>
+                                                <rect key="frame" x="16" y="73" width="288" height="44"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="d2j-mg-lN6"/>
@@ -61,8 +61,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="8bL-sl-UAa" secondAttribute="trailing" constant="8" id="686-Gb-AdO"/>
-                                            <constraint firstItem="8bL-sl-UAa" firstAttribute="leading" secondItem="oCl-Z0-Kaa" secondAttribute="leading" constant="8" id="Kkt-Ow-Owx"/>
+                                            <constraint firstAttribute="trailing" secondItem="8bL-sl-UAa" secondAttribute="trailing" constant="16" id="686-Gb-AdO"/>
+                                            <constraint firstItem="8bL-sl-UAa" firstAttribute="leading" secondItem="oCl-Z0-Kaa" secondAttribute="leading" constant="16" id="Kkt-Ow-Owx"/>
                                             <constraint firstItem="8bL-sl-UAa" firstAttribute="centerY" secondItem="oCl-Z0-Kaa" secondAttribute="centerY" id="jbl-a1-YNU"/>
                                         </constraints>
                                     </view>
@@ -82,7 +82,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="defaultSlider" destination="t3b-ig-nzE" id="gYP-ZU-E7g"/>
+                        <outlet property="rangeSlider" destination="8bL-sl-UAa" id="hpx-7S-uhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
