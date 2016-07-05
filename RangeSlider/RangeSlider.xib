@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RangeSlider" customModule="RangeSlider" customModuleProvider="target">
+            <connections>
+                <outlet property="activeBar" destination="Rca-NK-Ku5" id="Iee-DF-OIk"/>
+                <outlet property="backgroundBar" destination="eSK-lb-mw4" id="hKn-U2-1sq"/>
+                <outlet property="leftConstraint" destination="XB9-Ly-1c8" id="Yt3-Da-uig"/>
+                <outlet property="leftThumb" destination="XCV-an-qIq" id="f3f-mG-9Yb"/>
+                <outlet property="leftThumbWrapperView" destination="xgY-gX-JLz" id="bOQ-P4-f1F"/>
+                <outlet property="rightConstraint" destination="y3X-px-yro" id="xcE-ZW-R17"/>
+                <outlet property="rightThumb" destination="w4U-Jo-1eA" id="jQE-5W-yOu"/>
+                <outlet property="rightThumbWrapperView" destination="jKb-k9-u87" id="nEQ-Vo-coV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSK-lb-mw4">
+                    <rect key="frame" x="10" y="142" width="300" height="16"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="RGs-Em-nuA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rca-NK-Ku5">
+                    <rect key="frame" x="10" y="142" width="300" height="16"/>
+                    <color key="backgroundColor" red="0.043137254901960784" green="0.65490196078431373" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="7Js-b1-LEP"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgY-gX-JLz">
+                    <rect key="frame" x="0.0" y="128" width="20" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCV-an-qIq">
+                            <rect key="frame" x="0.0" y="2" width="20" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="4Qv-c7-HiP"/>
+                                <constraint firstAttribute="width" constant="20" id="fer-Ud-dFh"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="XCV-an-qIq" firstAttribute="top" secondItem="xgY-gX-JLz" secondAttribute="top" constant="2" id="5m2-c1-QxI"/>
+                        <constraint firstAttribute="width" constant="20" id="KKI-B8-ruu"/>
+                        <constraint firstItem="XCV-an-qIq" firstAttribute="centerX" secondItem="xgY-gX-JLz" secondAttribute="centerX" id="M61-un-bHS"/>
+                        <constraint firstAttribute="height" constant="44" id="MaI-Oc-B2M"/>
+                        <constraint firstItem="XCV-an-qIq" firstAttribute="centerY" secondItem="xgY-gX-JLz" secondAttribute="centerY" id="RgC-SJ-4Sy"/>
+                        <constraint firstAttribute="bottom" secondItem="XCV-an-qIq" secondAttribute="bottom" constant="2" id="TcU-XE-F0M"/>
+                        <constraint firstItem="XCV-an-qIq" firstAttribute="leading" secondItem="xgY-gX-JLz" secondAttribute="leading" constant="10" id="h9G-ex-yic"/>
+                        <constraint firstAttribute="trailing" secondItem="XCV-an-qIq" secondAttribute="trailing" constant="10" id="hXX-VB-sgw"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="5m2-c1-QxI"/>
+                            <exclude reference="TcU-XE-F0M"/>
+                            <exclude reference="h9G-ex-yic"/>
+                            <exclude reference="hXX-VB-sgw"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKb-k9-u87">
+                    <rect key="frame" x="300" y="128" width="20" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4U-Jo-1eA">
+                            <rect key="frame" x="0.0" y="2" width="20" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="AOe-Du-n9n"/>
+                                <constraint firstAttribute="width" constant="20" id="quM-Re-SD5"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="w4U-Jo-1eA" firstAttribute="top" secondItem="jKb-k9-u87" secondAttribute="top" constant="2" id="3nd-7i-ZdO"/>
+                        <constraint firstItem="w4U-Jo-1eA" firstAttribute="centerX" secondItem="jKb-k9-u87" secondAttribute="centerX" id="8hC-dN-roZ"/>
+                        <constraint firstAttribute="height" constant="44" id="Qxw-zN-Hpp"/>
+                        <constraint firstAttribute="bottom" secondItem="w4U-Jo-1eA" secondAttribute="bottom" constant="2" id="asX-mh-xGM"/>
+                        <constraint firstAttribute="trailing" secondItem="w4U-Jo-1eA" secondAttribute="trailing" constant="10" id="bhQ-Xj-xJ6"/>
+                        <constraint firstItem="w4U-Jo-1eA" firstAttribute="leading" secondItem="jKb-k9-u87" secondAttribute="leading" constant="12" id="kfo-or-oVO"/>
+                        <constraint firstItem="w4U-Jo-1eA" firstAttribute="centerY" secondItem="jKb-k9-u87" secondAttribute="centerY" id="ufD-97-qqB"/>
+                        <constraint firstAttribute="width" constant="20" id="xkB-xp-puS"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="3nd-7i-ZdO"/>
+                            <exclude reference="asX-mh-xGM"/>
+                            <exclude reference="bhQ-Xj-xJ6"/>
+                            <exclude reference="kfo-or-oVO"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Rca-NK-Ku5" firstAttribute="trailing" secondItem="eSK-lb-mw4" secondAttribute="trailing" constant="100" id="67D-Sr-l3T"/>
+                <constraint firstItem="xgY-gX-JLz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IB1-7q-Bli"/>
+                <constraint firstItem="Rca-NK-Ku5" firstAttribute="leading" secondItem="xgY-gX-JLz" secondAttribute="centerX" id="Ray-Ny-JFL"/>
+                <constraint firstItem="jKb-k9-u87" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="WpF-BA-V71"/>
+                <constraint firstItem="Rca-NK-Ku5" firstAttribute="leading" secondItem="eSK-lb-mw4" secondAttribute="leading" id="XB9-Ly-1c8"/>
+                <constraint firstItem="eSK-lb-mw4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="akj-nd-ELh"/>
+                <constraint firstItem="eSK-lb-mw4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="dTl-So-zfI"/>
+                <constraint firstItem="Rca-NK-Ku5" firstAttribute="centerY" secondItem="eSK-lb-mw4" secondAttribute="centerY" id="hlH-Qo-cpt"/>
+                <constraint firstItem="Rca-NK-Ku5" firstAttribute="leading" secondItem="eSK-lb-mw4" secondAttribute="leading" id="jbQ-Gn-scF"/>
+                <constraint firstAttribute="trailing" secondItem="eSK-lb-mw4" secondAttribute="trailing" constant="10" id="pTY-ZC-zol"/>
+                <constraint firstItem="jKb-k9-u87" firstAttribute="centerX" secondItem="Rca-NK-Ku5" secondAttribute="trailing" id="rYh-Gr-tPL"/>
+                <constraint firstItem="Rca-NK-Ku5" firstAttribute="trailing" secondItem="eSK-lb-mw4" secondAttribute="trailing" id="y3X-px-yro"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="67D-Sr-l3T"/>
+                    <exclude reference="jbQ-Gn-scF"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="76" y="365"/>
+        </view>
+    </objects>
+</document>

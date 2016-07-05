@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RangeSlider" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fTF-mG-qzL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3Y-wo-4jP">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="t3b-ig-nzE">
+                                                <rect key="frame" x="58" y="80" width="204" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="hs2-1X-VwA"/>
+                                                    <constraint firstAttribute="height" constant="30" id="zlf-ys-7dg"/>
+                                                </constraints>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="t3b-ig-nzE" firstAttribute="centerX" secondItem="B3Y-wo-4jP" secondAttribute="centerX" id="YUX-mZ-Mds"/>
+                                            <constraint firstItem="t3b-ig-nzE" firstAttribute="centerY" secondItem="B3Y-wo-4jP" secondAttribute="centerY" id="zTA-HB-tsE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCl-Z0-Kaa">
+                                        <rect key="frame" x="0.0" y="190" width="320" height="189"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-sl-UAa" customClass="RangeSlider" customModule="RangeSlider" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="73" width="304" height="44"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="d2j-mg-lN6"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbBorderColor">
+                                                        <color key="value" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbBorderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbCornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderCornerRadius">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="8bL-sl-UAa" secondAttribute="trailing" constant="8" id="686-Gb-AdO"/>
+                                            <constraint firstItem="8bL-sl-UAa" firstAttribute="leading" secondItem="oCl-Z0-Kaa" secondAttribute="leading" constant="8" id="Kkt-Ow-Owx"/>
+                                            <constraint firstItem="8bL-sl-UAa" firstAttribute="centerY" secondItem="oCl-Z0-Kaa" secondAttribute="centerY" id="jbl-a1-YNU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2J-hc-Mew">
+                                        <rect key="frame" x="0.0" y="379" width="320" height="189"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fTF-mG-qzL" secondAttribute="trailing" id="EAW-s5-LZB"/>
+                            <constraint firstItem="fTF-mG-qzL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XGr-pE-Nqc"/>
+                            <constraint firstItem="fTF-mG-qzL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fHm-AA-9c2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fTF-mG-qzL" secondAttribute="bottom" id="hyc-D3-lk3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="defaultSlider" destination="t3b-ig-nzE" id="gYP-ZU-E7g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="358"/>
+        </scene>
+    </scenes>
+</document>
